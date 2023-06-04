@@ -8,6 +8,7 @@ import com.ks.tr.service.BookService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
 import java.util.Set;
 import java.util.UUID;
 import java.util.stream.Collectors;
@@ -27,5 +28,12 @@ public class BookServiceImpl implements BookService {
     @Override
     public BookDto saveBook(BookDto bookDto) {
         return BookMapper.INSTANCE.entitytoDto(bookRepository.save(BookMapper.INSTANCE.dtotoEntity(bookDto)));
+    }
+
+    @Override
+    public Set<BookDto> getAllBook() {
+        List<Book> book = bookRepository.findAll();
+
+        return book.stream().map(book1 -> BookMapper.INSTANCE.entitytoDto(book1)).collect(Collectors.toSet());
     }
 }

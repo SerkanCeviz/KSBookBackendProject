@@ -9,4 +9,6 @@ public interface BookService {
     Set<BookDto> getBookWithCategoryId(UUID categoryId);
 
     BookDto saveBook(BookDto bookDto);
+
+    Set<BookDto> getAllBook();
 }

@@ -28,4 +28,9 @@ public class BookController {
         return new ResponseEntity<>(bookService.saveBook(bookDto), HttpStatus.CREATED);
     }
 
+    @GetMapping("/getAll")
+    public ResponseEntity<Set<BookDto>> getAllBook(){
+        return new ResponseEntity<>(bookService.getAllBook(),HttpStatus.OK);
+    }
+
 }

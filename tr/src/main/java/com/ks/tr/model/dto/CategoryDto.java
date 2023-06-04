@@ -18,5 +18,6 @@ public class CategoryDto {
     private UUID id;
     @NotBlank
     private String name;
+    private String imagePath;
     private Set<Book> books;
 }
